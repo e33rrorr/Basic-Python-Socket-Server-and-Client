@@ -12,3 +12,7 @@ client.connect((server_ip, server_port))
 
 print("Connected Successfully")
 
+message_to_client = input("Enter your message: ")
+
+client.sendall(message_to_client.encode("utf-8"))
+
