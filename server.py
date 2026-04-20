@@ -8,6 +8,9 @@ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 listen_on = "127.0.0.1"
 port_number = 9000
 
+# Show that the server is listening on what ip and port number
+print(f"Server listening on IP: {listen_on} Port: {port_number}")
+
 # This binds the IP address and the port number to the server
 server.bind((listen_on, port_number))
 
@@ -16,3 +19,7 @@ server.listen(5)
 
 # These two variables will return a private channel of server-client communication and client's IP address
 private_channel, client_address = server.accept()
+
+
+# Show that the use connected to the server using its IP address
+print(f"Connected: {client_address}")
