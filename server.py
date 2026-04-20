@@ -1,5 +1,5 @@
 import socket
-
+from encodings import utf_8
 
 # This variable becomes a socket object configured to use IPV4 addresses and TCP protocol
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -17,9 +17,17 @@ server.bind((listen_on, port_number))
 # This allows the server to wait for the connections, with a maximum of 5 clients in a que
 server.listen(5)
 
-# These two variables will return a private channel of server-client communication and client's IP address
+# private_channel returns a private channel and client_address returns client's IP address
 private_channel, client_address = server.accept()
 
 
 # Show that the use connected to the server using its IP address
-print(f"Connected: {client_address}")
+print(f"Client Connected: {client_address}")
+
+# Enables the server to receive data
+data = private_channel.recv(1024)
+
+# Decodes the message from the client
+message = data.decode("utf_8")
+
+print(f"Client's message: {message}")
