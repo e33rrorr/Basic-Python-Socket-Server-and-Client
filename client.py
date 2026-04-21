@@ -4,8 +4,8 @@ import socket
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Enter the server's IP and Port number
-server_ip = "127.0.0.1"
-server_port = 9000
+server_ip = input("Enter server's IP address: ")
+server_port = int(input("Enter server's port number: "))
 
 # Connects to the server
 client.connect((server_ip, server_port))
